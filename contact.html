@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Enquiry Form - IT Profesionales Brisbane</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header>
+    <img src="images/your-logo.png" alt="" class="logo">
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="course.html">Course Details</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <main>
+    <h2>Request more information</h2>
+
+    <form id="enquiryForm" class="form-card" novalidate>
+      <div class="form-row">
+        <label for="fullName">Full name</label>
+        <input id="fullName" name="fullName" type="text" required aria-required="true" autocomplete="name" />
+        <small class="error" id="err-name" aria-live="polite"></small>
+      </div>
+
+      <div class="form-row">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required aria-required="true" autocomplete="email" />
+        <small class="error" id="err-email" aria-live="polite"></small>
+      </div>
+
+      <div class="form-row">
+        <label for="phone">Phone</label>
+        <input id="phone" name="phone" type="tel" pattern="^[0-9+() -]{6,}$" autocomplete="tel" />
+        <small class="hint">Optional. Digits, +, () and spaces accepted.</small>
+      </div>
+
+      <div class="form-row">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="4" required aria-required="true"></textarea>
+        <small class="error" id="err-message" aria-live="polite"></small>
+      </div>
+
+      <button type="submit">Submit</button>
+
+      <p class="notice" id="success" hidden>
+        Thanks! Your enquiry has been received. We will contact you soon.
+      </p>
+    </form>
+
+    <h2>Our Location</h2>
+
+    <p><strong>Address:</strong> Level 23/343 Albert St, Brisbane City QLD 4000</p>
+    <p><strong>Phone:</strong> (07) 3123 4911</p>
+    <p><strong>Email:</strong> info@itpb.edu.au</p>
+
+    <div class="map-wrap">
+      <iframe
+        title="IT Profesionales Brisbane Map"
+        src="https://www.google.com/maps?q=Level%2023%2F343%20Albert%20St%2C%20Brisbane%20City%20QLD%204000&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </main>
+
+  <footer>
+    <p>© IT Profesionales Brisbane</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById('enquiryForm');
+    const success = document.getElementById('success');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let valid = true;
+
+      const name = document.getElementById('fullName');
+      const email = document.getElementById('email');
+      const message = document.getElementById('message');
+
+      document.getElementById('err-name').textContent = '';
+      document.getElementById('err-email').textContent = '';
+      document.getElementById('err-message').textContent = '';
+
+      if (!name.value.trim()) {
+        valid = false;
+        document.getElementById('err-name').textContent = 'Please enter your full name.';
+        name.focus();
+      } else if (!email.validity.valid) {
+        valid = false;
+        document.getElementById('err-email').textContent = 'Please enter a valid email address.';
+        email.focus();
+      } else if (!message.value.trim()) {
+        valid = false;
+        document.getElementById('err-message').textContent = 'Please write a short message.';
+        message.focus();
+      }
+
+      if (valid) {
+        success.hidden = false;
+        form.reset();
+        success.setAttribute('tabindex', '-1');
+        success.focus();
+      }
+    });
+  </script>
+</body>
+</html>
