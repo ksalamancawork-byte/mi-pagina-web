@@ -1,4 +1,4 @@
-/* GLOBAL */
+/*  GLOBAL */
 body {
   background: #ffffff;
   font-family: Arial, sans-serif;
@@ -12,7 +12,7 @@ h1, h2, h3 {
   text-align: center;
 }
 
-/* HEADER */
+/*  HEADER */
 header {
   background: #f2a6c7; /* Rosa suave */
   padding: 25px 0;
@@ -34,60 +34,133 @@ nav {
 }
 
 nav a {
+  margin: 0 15px;
   color: white;
   text-decoration: none;
-  margin: 0 15px;
   font-weight: bold;
 }
 
-nav a:hover {
+nav a:hover,
+nav a[aria-current="page"] {
   text-decoration: underline;
 }
 
-/* CONTENT */
+/*  MAIN CONTENT */
 main {
-  max-width: 1100px;
-  margin: 30px auto;
-  padding: 0 20px;
+  padding: 25px;
+  text-align: center;
 }
 
 .center-img {
   display: block;
-  margin: 20px auto;
-  width: 90%;
-  max-width: 900px;
+  margin: 25px auto;
+  max-width: 600px;
+  width: 100%;
   border-radius: 8px;
 }
 
-/* BANNER IMAGES */
-.banner {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-  margin: 30px 0;
-}
-
-.banner-img {
-  width: 32%;
-  height: 260px;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-/* PARAGRAPH INTRO */
 .intro {
-  font-size: 18px;
+  max-width: 900px;
+  margin: 20px auto;
+  font-size: 1.1rem;
   line-height: 1.6;
-  text-align: justify;
-  margin: 20px 0;
+  text-align: center;
 }
 
-/* FOOTER */
 footer {
-  background: #333;
-  color: white;
+  background: #e5e5e5; 
+  padding: 12px;
   text-align: center;
-  padding: 15px 0;
+  font-size: 0.9rem;
   margin-top: 40px;
 }
+
+.form-card {
+  background: #ffe3f0;
+  padding: 25px;
+  border-radius: 10px;
+  max-width: 700px;
+  margin: 25px auto;
+  text-align: left;
+  border: 2px solid #ff5fa2;
+}
+
+.form-row {
+  margin-bottom: 18px;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 6px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+  font-size: 1rem;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+button, input[type="submit"] {
+  background: #ff5fa2;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  display: block;
+  margin: 15px auto;
+}
+
+button:hover, input[type="submit"]:hover {
+  background: #e14d8a;
+}
+
+.course-container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+  text-align: left;
+}
+
+.card {
+  background: #ffffff;
+  border-left: 6px solid #ff5fa2;
+  padding: 18px;
+  margin-bottom: 18px;
+  border-radius: 8px;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+  margin-top: 0;
+  color: #ff5fa2;
+  font-size: 1.3rem;
+}
+
+.card ul {
+  padding-left: 20px;
+}
+
+.banner {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  margin: 40px 0;
+}
+
+.banner img {
+  width: 33.33%;
+  height: 350px; 
+  object-fit: cover;
+}
+
